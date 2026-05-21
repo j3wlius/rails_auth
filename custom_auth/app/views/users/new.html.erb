@@ -1,2 +1,26 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="auth-card">
+  <h1 class="auth-heading">Create your account</h1>
+
+  <%= form_with model: @user, url: register_path, class: "auth-form" do |form| %>
+    <div class="field">
+      <%= form.label :email, class: "field-label" %>
+      <%= form.email_field :email, class: "field-input", placeholder: "you@example.com", required: true, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password, class: "field-label" %>
+      <%= form.password_field :password, class: "field-input", placeholder: "Create a password", required: true %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password_confirmation, class: "field-label" %>
+      <%= form.password_field :password_confirmation, class: "field-input", placeholder: "Confirm your password", required: true %>
+    </div>
+
+    <%= form.submit "Sign up", class: "btn-primary" %>
+  <% end %>
+
+  <p class="auth-footer">
+    Already have an account? <%= link_to "Log in", login_path, class: "auth-link" %>
+  </p>
+</div>

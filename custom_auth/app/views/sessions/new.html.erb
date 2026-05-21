@@ -1,2 +1,21 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<div class="auth-card">
+  <h1 class="auth-heading">Log in</h1>
+
+  <%= form_with url: login_path, class: "auth-form" do |form| %>
+    <div class="field">
+      <%= form.label :email, class: "field-label" %>
+      <%= form.email_field :email, class: "field-input", placeholder: "you@example.com", required: true, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password, class: "field-label" %>
+      <%= form.password_field :password, class: "field-input", placeholder: "Enter your password", required: true %>
+    </div>
+
+    <%= form.submit "Log in", class: "btn-primary" %>
+  <% end %>
+
+  <p class="auth-footer">
+    Don't have an account? <%= link_to "Sign up", register_path, class: "auth-link" %>
+  </p>
+</div>
